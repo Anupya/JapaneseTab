@@ -1,0 +1,180 @@
+body {
+	background-color: #ffdae9;
+	margin: 0px;
+	border: 0px;
+	font-family: 'Roboto', sans-serif;
+	align-items: center;
+}
+
+h1 {
+	margin: 0px;
+	border: 0px;
+}
+
+a {
+	display:inline;
+}
+
+.most_visited {
+	padding:0px;
+	margin-top: 3vh;
+}
+
+.kanji {
+	text-align: center;
+	font-size: 150px;
+	margin-top: 10vh;
+}
+
+.hiragana {
+	font-weight: 100;
+	font-size: 20px;
+	margin-left: 20px;
+	
+}
+
+/*
+.katakana {
+	font-weight: 100;
+	font-size: 20px;
+	position:relative;
+	text-align: center;	
+	
+}
+*/
+
+.kanahira {
+	color:#8c8c8c;
+	position: relative;
+	margin: 0 auto;
+	padding-right: 12px;
+	padding-top: 1vh;
+}
+
+/*
+.romaji {
+	font-weight: 100;
+	font-size: 20px;
+	margin-right: 20px;
+	
+}
+*/
+
+.pos {
+	font-weight: 100;
+	font-size: 20px;
+	position:relative;
+	text-align: center;	
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+	
+}
+
+.pronounciation_pos {
+	color:#8c8c8c;
+	position:relative;
+	margin: 0 auto;
+	padding-top: 1vh;
+}
+
+.definition {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	margin-top: 1vh;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+}
+
+ul {
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-top: 5vh;
+}
+
+li {
+	border:0px;
+	margin:0px;
+	float: left;
+	display: inline;
+	margin:1.25vw;
+	-webkit-transition: box-shadow .2s; /* Safari */
+    transition: box-shadow .2s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+li:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+	background-color: white;
+}
+
+a:link {
+	color:black;
+	text-decoration: none;
+}
+
+a:visited {
+	color:black;
+	text-decoration: none;
+}
+
+a:hover {
+	color:black;
+	text-decoration: none;
+}
+
+a:active {
+	color:black;
+	text-decoration: none;
+}
+
+.link {
+	position: relative;
+	width: 180px;
+	overflow: hidden;
+    overflow: ellipsis;
+    white-space: nowrap;
+  	border: 0.10vw solid #A9A9A9;
+  	padding: 10px;
+  	height: 30px;
+  	border-radius: 30px;
+  	
+}
+
+.favicon {
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.link_text {
+	padding-left: 5px;
+	padding-top: 5px;
+	position: absolute;
+	font-size: 15px;
+	display: inline-flex;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

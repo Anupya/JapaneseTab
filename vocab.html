@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content-type="text/html">
+		<link rel="stylesheet" type="text/css" href="vocab.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script src="wanakana.js"></script>
+	</head>
+
+<body>
+
+<div style="text-align:center;">
+	<h1 class="kanji" id="kanji"></h1>
+	<div>
+		<div class = "kanahira">
+			<!--<a class="katakana"><span id="katakana"></span></a>-->
+			<a class="hiragana"><span id="hiragana"></span></a>
+		</div>
+
+		<div class = "pronounciation_pos">
+			<!--<a class="romaji" id="romaji"></a>-->
+			<a class="pos" id="part of speech"></a>
+		</div>
+	</div>
+	<p class="definition" id="definition"></p>
+</div>
+
+    <div id="mostVisited_div" class="most_visited"></div>
+    
+  
+
+</body>
+<script src="vocab.js"></script>
+
+<script>
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var hiragana= document.getElementById('hiragana').text;
+		var romaji = wanakana.toRomaji(hiragana);
+
+		//document.getElementById('romaji').createTextNode(romaji);	
+
+	}, 
+	false);
+
+	// Google Analytics Code
+	var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', _AnalyticsCode]);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+	    var ga = document.createElement('script');
+	    ga.type = 'text/javascript';
+	    ga.async = true;
+	    ga.src = 'https://ssl.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+
+</html>

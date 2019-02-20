@@ -1,0 +1,10 @@
+body {
+	width: 400px;
+}
+
+.link {
+    outline:none;
+}
+
+
+textarea, input { outline: none; }
