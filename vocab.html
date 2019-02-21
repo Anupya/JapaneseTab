@@ -4,38 +4,97 @@
 		<meta charset="UTF-8">
 		<meta content-type="text/html">
 		<link rel="stylesheet" type="text/css" href="vocab.css">
+		<script src="jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 <body>
 
 <div style="text-align:center;">
-	<h1 class="kanji" id="kanji"></h1>
+	<h1 class="romaji" id="romaji"></h1>
 	<div>
 
-		<div class = "romajiclass">
-			<a class="romaji" id="romaji"></a>
+		<div class = "kanjiclass">
+			<a class="kanji" id="kanji"></a>
 		</div>
 
-		<div class = "hiraganaclass">
+		<div class = "kanaclass">
 			<a class="hiragana" id="hiragana"></a>
+			<a class="dot">•</a>
+			<a class="katakana" id="katakana"></a>
 		</div>
 
 		<div class = "katakanaclass">
-			<a class="katakana" id="katakana"></a>
+			
 		</div>
+
+		<p class="definition" id="definition"></p>
 
 		<div class = "pronounciation_pos">
 			<a class="pos" id="part of speech"></a>
 		</div>
 	</div>
-	<p class="definition" id="definition"></p>
+	
 </div>
 
-    <div id="mostVisited_div" class="most_visited"></div>
+    <div style="align-items:center" id="mostVisited_div" class="most_visited"></div>
     
+    <!--
+    <style>
+		.colourBlock {
+			border: var(--grey) 1px solid;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+
+		.colourBlock:hover, .colourBlock:active {
+			cursor: pointer;
+			border: black 1px solid;
+		}
+
+		#lightblue {
+			background-color: #D9E5FF;
+		}
+		#blue {
+			background-color: #C1DAF8;
+		}
+		#darkpink {
+			background-color: #E2C8E5;
+		}
+		#pink {
+			background-color: #F3D3EA;
+		}
+		#lightpink {
+			background-color: #F9DFE8;
+		}
+		#lightorange {
+			background-color: #FDECE4;
+		}
+
+	</style>
+	-->
+ 	<div class="colourSwatch">
+
+	    <div class="colourBlock" id="lightblue"></div>
+	    <div class="colourBlock" id="blue"></div>
+	    <div class="colourBlock" id="darkpink"></div>
+	    <div class="colourBlock" id="pink"></div>
+	    <div class="colourBlock" id="lightpink"></div>
+	    <div class="colourBlock" id="lightorange"></div>
+
+	</div>
+
 </body>
 
 <script src="vocab.js">
+
+	$(".colourBlock").click(function() {
+      //Get the background color of the clicked color block by using the this object
+      var $backgroundColor = $(this).css("background-color");
+      //Set the body's background-color to the received background-color
+      $("body").css("background-color", $backgroundColor);
+
+    });
 
 	// Google Analytics Code
 	var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number

@@ -1,32 +1,103 @@
+/*
+
+COLOR PALETTE
+
+Light blue: #D9E5FF
+Blue: #D9E5FF
+Dark pink: #E2C8E5
+Pink: #E2C8E5
+Light pink: #F9DFE8
+Pale orange: #FDECE4
+
+*/
+
+:root {
+	--lightblue: #D9E5FF;
+	--blue: #C1DAF8;
+	--darkpink: #E2C8E5;
+	--pink: #F3D3EA;
+	--lightpink: #F9DFE8;
+	--paleorange: #FDECE4;
+	--grey: #A9A9A9;
+}
+
 body {
-	background-color: #ffdae9;
+	background-color: var(--lightpink);
 	margin: 0px;
 	border: 0px;
 	font-family: 'Roboto', sans-serif;
 	align-items: center;
-}
-
-h1 {
-	margin: 0px;
-	border: 0px;
+	min-width: 950px;
 }
 
 a {
 	display:inline;
 }
 
+/* COLOURS ------------------------------------ */
+
+.colourSwatch {
+	position: fixed;
+	bottom: 3vh;
+	right: 5vh;
+	float: right;
+}
+
+.colourBlock {
+	border: var(--grey) 1px solid;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+
+.colourBlock:hover, .colourBlock:active {
+	cursor: pointer;
+	border: black 1px solid;
+}
+
+#lightblue {
+	background-color: var(--lightblue);
+}
+#blue {
+	background-color: var(--blue);
+}
+#darkpink {
+	background-color: var(--darkpink);
+}
+#pink {
+	background-color: var(--pink);
+}
+#lightpink {
+	background-color: var(--lightpink);
+}
+#lightorange {
+	background-color: var(--lightorange);
+}
+
+.romaji {
+	margin-top: 10vh;
+	font-weight: 100;
+	font-size: 60px;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+}
+
 .most_visited {
-	padding:0px;
+	padding: 0px;
 	margin-top: 3vh;
+}
+
+.kanjiclass {
+	position: relative;
+	margin-top: -5vh;
 }
 
 .kanji {
 	text-align: center;
-	font-size: 150px;
-	margin-top: 10vh;
+	font-size: 60px;
+	font-weight: 900;
 }
 
-.hiraganaclass {
+.kanaclass {
 	position: relative;
 	padding-top: 1vh;
 }
@@ -34,11 +105,11 @@ a {
 .hiragana {
 	font-weight: 100;
 	font-size: 20px;	
+	margin-right: 10px;
 }
 
-.katakanaclass {
-	position: relative;
-	padding-top: 1vh;
+.dot {
+	align-items: center;
 }
 
 .katakana {
@@ -47,24 +118,12 @@ a {
 	font-size: 20px;
 	position:relative;
 	text-align: center;	
-}
-
-.romajiclass {
-	position: relative;
-	padding-top: 1vh;
-}
-
-.romaji {
-	
-	font-weight: 100;
-	font-size: 20px;
-	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
-	padding-top: 2vh;
+	margin-left: 10px;
 }
 
 .pos {
 	font-weight: 100;
-	font-size: 20px;
+	font-size: 15px;
 	position:relative;
 	text-align: center;	
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
@@ -75,7 +134,7 @@ a {
 	color:#8c8c8c;
 	position:relative;
 	margin: 0 auto;
-	padding-top: 2vh;
+	padding-top: 1vh;
 }
 
 .definition {
@@ -90,8 +149,9 @@ a {
 }
 
 ul {
-	padding-left: 10vw;
-	padding-right: 10vw;
+	/*padding-left: 10vw;*/
+	position: relative;
+	margin: 0 auto;
 	padding-top: 5vh;
 }
 
@@ -100,7 +160,7 @@ li {
 	margin:0px;
 	float: left;
 	display: inline;
-	margin:1.25vw;
+	margin: 1.25vw;
 	-webkit-transition: box-shadow .2s; /* Safari */
     transition: box-shadow .2s;
     -webkit-transition-timing-function: ease-in-out;
@@ -138,7 +198,7 @@ a:active {
 	overflow: hidden;
     overflow: ellipsis;
     white-space: nowrap;
-  	border: 0.10vw solid #A9A9A9;
+  	border: 0.10vw solid var(--grey);
   	padding: 10px;
   	height: 30px;
   	border-radius: 30px;
