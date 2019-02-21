@@ -26,39 +26,41 @@ a {
 	margin-top: 10vh;
 }
 
-.hiragana {
-	font-weight: 100;
-	font-size: 20px;
-	margin-left: 20px;
-	
+.hiraganaclass {
+	position: relative;
+	padding-top: 1vh;
 }
 
-/*
+.hiragana {
+	font-weight: 100;
+	font-size: 20px;	
+}
+
+.katakanaclass {
+	position: relative;
+	padding-top: 1vh;
+}
+
 .katakana {
+	padding-top: 2vh;
 	font-weight: 100;
 	font-size: 20px;
 	position:relative;
 	text-align: center;	
-	
 }
-*/
 
-.kanahira {
-	color:#8c8c8c;
+.romajiclass {
 	position: relative;
-	margin: 0 auto;
-	padding-right: 12px;
 	padding-top: 1vh;
 }
 
-/*
 .romaji {
+	
 	font-weight: 100;
 	font-size: 20px;
-	margin-right: 20px;
-	
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+	padding-top: 2vh;
 }
-*/
 
 .pos {
 	font-weight: 100;
@@ -73,7 +75,7 @@ a {
 	color:#8c8c8c;
 	position:relative;
 	margin: 0 auto;
-	padding-top: 1vh;
+	padding-top: 2vh;
 }
 
 .definition {
