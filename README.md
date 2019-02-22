@@ -6,7 +6,7 @@ A Chrome extension that helps you learn Japanese with every new tab.
 ![Screenshot](https://github.com/Anupya/JapTab/blob/master/logotitlesmaller.png)
 
 ## Installation
- Click [here](https://chrome.google.com/webstore/detail/fanfictionultimate/hbhlklehlompfbncnchjocoeabddnmjl) to download the extension: <br />
+ Click [here](https://chrome.google.com/webstore/detail/japtab/jndamehabjcbgopalgabjpplldmjnnfn) to download the extension: <br />
  ![Screenshot](http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/546cff26e4b08897ae07e062/55b2a832e4b051ab94b88fde/1440437069496/?format=1000w)
  
  ## Features
