@@ -3,7 +3,11 @@
 Learn romaji, kanji, hiragana, katakana without even realizing it. <br >
 A Chrome extension that helps you learn Japanese with every new tab. 
 
+[![HitCount](http://hits.dwyl.com/Anupya/JapTab.svg)](http://hits.dwyl.com/Anupya/JapTab) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 ![Screenshot](https://github.com/Anupya/JapTab/blob/master/logotitlesmaller.png)
+
 
 ## Installation
  Click [here](https://chrome.google.com/webstore/detail/japtab/jndamehabjcbgopalgabjpplldmjnnfn) to download the extension: <br />
