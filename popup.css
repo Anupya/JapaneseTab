@@ -2,6 +2,101 @@ body {
 	width: 400px;
 }
 
+p {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 350px;
+}
+/* JAPANESE --------------------------------- */
+
+.circle {
+	position: fixed;
+	border-radius: 50%;
+	width: 320px;
+	height: 320px;
+	margin-top: 4vh;
+	align-items: center;
+	margin-left: 8vh;
+	background-color: #F3D3EA; 
+	z-index: -1;
+}
+
+.format {
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+	z-index: 1;
+}
+.romaji {
+	margin-top: 4vh;
+	font-weight: 100;
+	font-size: 60px;
+	z-index: 1;
+}
+
+.kanjiclass {
+	position: relative;
+	margin-top: -10vh;
+}
+
+.kanji {
+	text-align: center;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.kanaclass {
+	position: relative;
+	padding-top: 1vh;
+	font-family: 
+}
+
+.hiragana {
+	font-weight: 100;
+	font-size: 20px;	
+	margin-right: 10px;
+}
+
+.dot {
+	align-items: center;
+}
+
+.katakana {
+	padding-top: 2vh;
+	font-weight: 100;
+	font-size: 20px;
+	position:relative;
+	text-align: center;	
+	margin-left: 10px;
+}
+
+.pos {
+	font-weight: 100;
+	font-size: 15px;
+	position:relative;
+	text-align: center;	
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+	
+}
+
+.pronounciation_pos {
+	color:#8c8c8c;
+	position:relative;
+	margin: 0 auto;
+	padding-top: 1vh;
+}
+
+.definition {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	margin-top: 1vh;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 1;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+}
+
+
 .link {
     outline:none;
 }
