@@ -27,7 +27,9 @@ body {
 	border: 0px;
 	font-family: 'Roboto', sans-serif;
 	align-items: center;
-	min-width: 950px;
+	min-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a {
@@ -56,7 +58,7 @@ a {
 }
 
 #lightblue {
-	background-color: var(--lightblue);
+	background-color: #D9E5FF;
 }
 #blue {
 	background-color: var(--blue);
@@ -74,16 +76,13 @@ a {
 	background-color: var(--lightorange);
 }
 
+/* JAPANESE --------------------------------- */
+
 .romaji {
 	margin-top: 10vh;
 	font-weight: 100;
 	font-size: 60px;
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
-}
-
-.most_visited {
-	padding: 0px;
-	margin-top: 3vh;
 }
 
 .kanjiclass {
@@ -148,19 +147,26 @@ a {
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
 }
 
-ul {
-	/*padding-left: 10vw;*/
+/* MOST VISITED ------------------------ */
+
+.most_visited {
 	position: relative;
-	margin: 0 auto;
-	padding-top: 5vh;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3vh;
+	max-width:980px;
+}
+
+ul {
+	margin: 0px;
+	padding-top: 1vh;
 }
 
 li {
 	border:0px;
-	margin:0px;
 	float: left;
-	display: inline;
-	margin: 1.25vw;
+	display: inline-block;
+	margin: 10px;
 	-webkit-transition: box-shadow .2s; /* Safari */
     transition: box-shadow .2s;
     -webkit-transition-timing-function: ease-in-out;

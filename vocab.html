@@ -4,7 +4,8 @@
 		<meta charset="UTF-8">
 		<meta content-type="text/html">
 		<link rel="stylesheet" type="text/css" href="vocab.css">
-		<script src="jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-3.3.1.min.js" type="text/javascript">
+		</script>
 	</head>
 
 <body>
@@ -86,16 +87,19 @@
 
 </body>
 
-<script src="vocab.js">
+<script src="vocab.js" type="text/javascript" charset="utf-8">
+	jQuery.noConflict();
+	jQuery(document).ready(function () {
+		
+		jQuery(".colourBlock").click(function() {
 
-	$(".colourBlock").click(function() {
-      //Get the background color of the clicked color block by using the this object
-      var $backgroundColor = $(this).css("background-color");
-      //Set the body's background-color to the received background-color
-      $("body").css("background-color", $backgroundColor);
+			// change body's bg colour to cell's bg colour
+	      	jQuery("body").css("background-color", jQuery(this).css("background-color"));
 
-    });
+	    });
 
+	})
+	
 	// Google Analytics Code
 	var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number
 
