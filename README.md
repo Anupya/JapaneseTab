@@ -35,8 +35,7 @@ A Chrome extension that helps you learn Japanese with every new tab.
  
 ## License
 
-MIT - Read it [here](https://github.com/Anupya/
-/blob/master/LICENSE)
+MIT - Read it [here](https://github.com/Anupya/JapaneseTab/blob/master/LICENSE)
 
 ## Screenshots
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot5.png)
