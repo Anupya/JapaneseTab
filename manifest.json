@@ -5,18 +5,16 @@
 
   "name": "JapTab",
   "short_name": "JapTab",
-  "description": "Learn Japanese in every new tab without realizing it!",
+  "description": "Learn Japanese in every new tab without even realizing it!",
   "version": "1.0.0",
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "chrome_url_overrides": {"newtab": "vocab.html"},
 
 "permissions": [
-        "tabs",
+        "activeTab",
         "topSites",
         "https://jisho.org/api/*",
         "https://unpkg.com/wanakana",
-        "http://*/*",
-        "https://*/*",
         "storage"
         
   ], 
@@ -25,9 +23,5 @@
         "default_popup": "popup.html",
         "options_page": "settings.html"
         
-  },
- "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["vocab.js", "wanakana.js"]
- }]
+  }
 }
