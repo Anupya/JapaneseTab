@@ -1,24 +1,13 @@
-/*
-
-COLOR PALETTE
-
-Light blue: #D9E5FF
-Blue: #D9E5FF
-Dark pink: #E2C8E5
-Pink: #E2C8E5
-Light pink: #F9DFE8
-Pale orange: #FDECE4
-
-*/
-
 :root {
-	--lightblue: #D9E5FF;
-	--blue: #C1DAF8;
-	--darkpink: #E2C8E5;
-	--pink: #F3D3EA;
-	--lightpink: #F9DFE8;
-	--paleorange: #FDECE4;
 	--grey: #A9A9A9;
+	--yellowlight: #FFFBDF;
+	--greenlight: #EAFFEF;
+	--bluelight: #D9E5FF;
+	--purplelight: #CBC5F5;
+	--pinkdark: #E2C8E5;
+	--pink: #F3D3EA;
+	--pinklight: #F9DFE8;
+	--orangelight: #FDECE4;
 }
 
 body {
@@ -56,25 +45,41 @@ a {
 	border: black 1px solid;
 }
 
+.upperSwatch {
+	position: relative;
+	float:right;
+}
+.lowerSwatch {
+	clear:right;
+	float: right;
+	position: relative;
+}
 
-#lightblue {
-	background-color: #D9E5FF;
+#yellowlight {
+	background-color: var(--yellowlight);
 }
-#blue {
-	background-color: var(--blue);
+#greenlight {
+	background-color: var(--greenlight);
 }
-#darkpink {
-	background-color: var(--darkpink);
+#bluelight {
+	background-color: var(--bluelight);
+}
+#purplelight {
+	background-color: var(--purplelight);
+}
+#pinkdark {
+	background-color: var(--pinkdark);
 }
 #pink {
 	background-color: var(--pink);
 }
-#lightpink {
-	background-color: var(--lightpink);
+#pinklight {
+	background-color: var(--pinklight);
 }
-#lightorange {
-	background-color: var(--lightorange);
+#orangelight {
+	background-color: var(--orangelight);
 }
+
 
 /* JAPANESE --------------------------------- */
 
@@ -204,7 +209,7 @@ a:active {
 	overflow: hidden;
     overflow: ellipsis;
     white-space: nowrap;
-  	border: 0.10vw solid var(--grey);
+  	border: 1px solid var(--grey);
   	padding: 10px;
   	height: 30px;
   	border-radius: 30px;

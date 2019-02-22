@@ -381,17 +381,35 @@ ga('set', 'checkProtocolTask', function(){}); // Removes failing protocol check.
 ga('require', 'displayfeatures');
 ga('send', 'pageview', '/vocab.html');
 
+// 8 colours
+var yellowlight = '#FFFBDF';
+var greenlight = '#EAFFEF';
+var bluelight = '#D9E5FF';
+var purplelight = '#CBC5F5';
+var pinkdark = '#E2C8E5';
+var pink = '#F3D3EA';
+var pinklight = '#F9DFE8';
+var orangelight = '#FDECE4';
+
 // add event listeners
 var palette = document.getElementsByClassName('colourBlock');
-var colours = ['#D9E5FF', '#C1DAF8', '#E2C8E5', '#F3D3EA', '#F9DFE8', '#FDECE4'];
+var colours = [yellowlight, orangelight, pinklight, pink, pinkdark, purplelight, bluelight, greenlight];
 
-// for some reason trying to do this in a for loop does not work :(
+// adds event listeners
 for (var i = 0; i < palette.length; i++) {
 
 	// pass i inside a function to addEventListeners
 	(function(index) {
 		palette[index].addEventListener("click", function() {
 			document.getElementById('body').style.backgroundColor = colours[index];
+			
+			// clears any highlighted boxes
+			for (var j = 0; j < palette.length; j++) {
+				document.getElementById(palette[j].id).style.border = '1px solid #a9a9a9';
+			}
+
+			// adds thicker border around current selection
+			document.getElementById(palette[index].id).style.border = '1px black solid';
 			Cookies.set("color", index);
 		})
 	}) (i);
@@ -404,7 +422,7 @@ if (Cookies.get("color")) {
 }
 // if no colour chosen, use default colour
 else {
-	Cookies.set("color", 4);
+	Cookies.set("color", 3);
 }
 
 // apply the colour
