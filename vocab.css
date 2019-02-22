@@ -52,10 +52,11 @@ a {
 	display: inline-block;
 }
 
-.colourBlock:hover, .colourBlock:active {
+.colourBlock:hover, .colourBlock:visited {
 	cursor: pointer;
 	border: black 1px solid;
 }
+
 
 #lightblue {
 	background-color: #D9E5FF;

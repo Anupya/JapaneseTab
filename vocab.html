@@ -88,17 +88,18 @@
 </body>
 
 <script src="vocab.js" type="text/javascript" charset="utf-8">
-	jQuery.noConflict();
-	jQuery(document).ready(function () {
+
+	$(".colourBlock").onclick(function() {
+
+		var bgcolor = $(this).css("background-color");
+		bgcolor += ' !important';
+		window.alert(bgcolor);
 		
-		jQuery(".colourBlock").click(function() {
+		// change body's bg colour to cell's bg colour
+      	$("body").css("background-color", bgcolor);
 
-			// change body's bg colour to cell's bg colour
-	      	jQuery("body").css("background-color", jQuery(this).css("background-color"));
+    });
 
-	    });
-
-	})
 	
 	// Google Analytics Code
 	var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number

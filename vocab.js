@@ -4,14 +4,9 @@
 
 THINGS TO DO
 
-Romaji - DONE
-Katakana - DONE
 Make icons svg and less pixellated and gross
 Change popup to show the format of how the new tab page is
-Make UI more aesthetic and Japanese - DONE
 Choose background colour you want
-Fix window sizing - DONE
-
 
 */
 
@@ -99,7 +94,7 @@ var wordList = [
   "fierce","fifteen","fifth","fifty","fight","fighting","figure","fill",
   "film","final","finally","find","fine","finest","finger","finish",
   "fire","fireplace","firm","first","fish","five","fix","flag",
-  "flame","flat","flew","flies","flight","floating","floor","flow",
+  "flame","flat","flies","flight","floating","floor","flow",
   "flower","fly","fog","folks","follow","food","foot","football",
   "for","force","foreign","forest","forget","forgot","forgotten","form",
   "former","fort","forth","forty","forward","found","four",
@@ -217,7 +212,7 @@ var wordList = [
   "stiff","still","stock","stomach","stone","stood","stop","stopped",
   "store","storm","story","straight","strange","stranger","straw",
   "stream","street","strength","stretch","strike","string","strip","strong",
-  "stronger","struck","structure","struggle","stuck","student","studied","studying",
+  "stronger","structure","struggle","stuck","student","studied","studying",
   "subject","substance","success","successful","such","sudden","suddenly","sugar",
   "suggest","suit","sum","summer","sun","sunlight","supper","supply",
   "support","suppose","sure","surface","surprise","surrounded","swam","sweet",
