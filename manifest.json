@@ -3,10 +3,10 @@
 
   "manifest_version": 2,
 
-  "name": "JapTab",
-  "short_name": "JapTab",
+  "name": "JapaneseTab",
+  "short_name": "JTab",
   "description": "Learn Japanese in every new tab without even realizing it!",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "chrome_url_overrides": {"newtab": "vocab.html"},
 
