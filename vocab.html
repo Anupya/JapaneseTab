@@ -8,7 +8,7 @@
 		</script>
 	</head>
 
-<body>
+<body id="body">
 
 <div style="text-align:center;">
 	<h1 class="romaji" id="romaji"></h1>
@@ -38,42 +38,7 @@
 </div>
 
     <div style="align-items:center" id="mostVisited_div" class="most_visited"></div>
-    
-    <!--
-    <style>
-		.colourBlock {
-			border: var(--grey) 1px solid;
-			width: 20px;
-			height: 20px;
-			display: inline-block;
-		}
 
-		.colourBlock:hover, .colourBlock:active {
-			cursor: pointer;
-			border: black 1px solid;
-		}
-
-		#lightblue {
-			background-color: #D9E5FF;
-		}
-		#blue {
-			background-color: #C1DAF8;
-		}
-		#darkpink {
-			background-color: #E2C8E5;
-		}
-		#pink {
-			background-color: #F3D3EA;
-		}
-		#lightpink {
-			background-color: #F9DFE8;
-		}
-		#lightorange {
-			background-color: #FDECE4;
-		}
-
-	</style>
-	-->
  	<div class="colourSwatch">
 
 	    <div class="colourBlock" id="lightblue"></div>
@@ -84,39 +49,27 @@
 	    <div class="colourBlock" id="lightorange"></div>
 
 	</div>
-
 </body>
-
-<script src="vocab.js" type="text/javascript" charset="utf-8">
-
-	$(".colourBlock").onclick(function() {
-
-		var bgcolor = $(this).css("background-color");
-		bgcolor += ' !important';
-		window.alert(bgcolor);
-		
-		// change body's bg colour to cell's bg colour
-      	$("body").css("background-color", bgcolor);
-
-    });
-
 	
-	// Google Analytics Code
-	var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number
+	<script src="vocab.js" type="text/javascript">
+		
+		// Google Analytics Code
+		var _AnalyticsCode = 'UA-84005100-1';//instead XXX my number
 
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', _AnalyticsCode]);
-	_gaq.push(['_trackPageview']);
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', _AnalyticsCode]);
+		_gaq.push(['_trackPageview']);
 
-	(function () {
-	    var ga = document.createElement('script');
-	    ga.type = 'text/javascript';
-	    ga.async = true;
-	    ga.src = 'https://ssl.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0];
-	    s.parentNode.insertBefore(ga, s);
-	})();
-
-</script>
+		(function () {
+		    var ga = document.createElement('script');
+		    ga.type = 'text/javascript';
+		    ga.async = true;
+		    ga.src = 'https://ssl.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(ga, s);
+		})();
+		
+		
+	</script>
 
 </html>
