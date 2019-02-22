@@ -4,7 +4,8 @@
   "manifest_version": 2,
 
   "name": "JapTab",
-  "description": "Learn Japanese at every new tab without realizing it!",
+  "short_name": "JapTab",
+  "description": "Learn Japanese in every new tab without realizing it!",
   "version": "1.0.0",
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "chrome_url_overrides": {"newtab": "vocab.html"},
