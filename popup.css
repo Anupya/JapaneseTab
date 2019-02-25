@@ -12,11 +12,11 @@ p {
 .circle {
 	position: fixed;
 	border-radius: 50%;
-	width: 320px;
-	height: 320px;
-	margin-top: 4vh;
+	width: 70vh;
+	height: 70vh;
+	margin-top: 2.5vh;
 	align-items: center;
-	margin-left: 8vh;
+	margin-left: 5.5vh;
 	background-color: #F3D3EA; 
 	z-index: -1;
 }
@@ -26,7 +26,7 @@ p {
 	z-index: 1;
 }
 .romaji {
-	margin-top: 4vh;
+	margin-top: 1vh;
 	font-weight: 100;
 	font-size: 60px;
 	z-index: 1;

@@ -127,7 +127,7 @@ var wordList = [
   "lead","leader","leaf","learn","least","leather","leave","leaving",
   "left","leg","length","lesson","let","letter","level",
   "library","lie","life","light","like","likely","limited",
-  "lion","lips","liquid","listen","little","live","living","load","local","locate",
+  "lion","lips","liquid","listen","little","living","load","local","locate",
   "location","log","lonely","long","look","loose","lose","loss","lost","lot","loud",
   "love","lovely","low","lower","luck","lunch","lungs",
   "lying","machine","machinery","mad","made","magic","magnet","mail",
