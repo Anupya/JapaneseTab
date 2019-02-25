@@ -427,12 +427,14 @@ document.getElementById('toggleLinks').addEventListener("click", function() {
 
 	if (status == 'hidden') {
 
+		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 		document.getElementById('mostVisited_div').style.visibility = 'visible';
 		Cookies.set("linksVisibility", "visible");
 	}
 	else {
 
 		document.getElementById('mostVisited_div').style.visibility = 'hidden';
+		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 		Cookies.set("linksVisibility", "hidden");
 	}
 
@@ -450,4 +452,9 @@ else {
 // save the setting
 document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
 
-
+if (Cookies.get("linksVisibility") == "hidden") {
+	document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+}
+else {
+	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+}

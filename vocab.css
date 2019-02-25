@@ -26,17 +26,6 @@ a {
 
 /* COLOURS ------------------------------------ */
 
-#toggleLinks {
-	position: fixed;
-	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
-	bottom: 3vh;
-	left: 5vh;
-}
-
-#toggleLinks:hover {
-	cursor: pointer;
-}
-
 .colourSwatch {
 	position: fixed;
 	bottom: 3vh;
@@ -164,6 +153,18 @@ a {
 }
 
 /* MOST VISITED ------------------------ */
+
+#toggleLinks {
+	position: fixed;
+	height: 20px;
+	width: 30px;
+	bottom: 3vh;
+	left: 5vh;
+}
+
+#toggleLinks:hover {
+	cursor: pointer;
+}
 
 .most_visited {
 	position: relative;
