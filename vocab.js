@@ -369,6 +369,8 @@ ga('set', 'checkProtocolTask', function(){}); // Removes failing protocol check.
 ga('require', 'displayfeatures');
 ga('send', 'pageview', '/vocab.html');
 
+/* COLOURS --------------------------------------- */
+
 // 8 colours
 var yellowlight = '#FFFBDF';
 var greenlight = '#EAFFEF';
@@ -417,7 +419,35 @@ else {
 palette[Cookies.get("color")].click();
 
 
+/* LINKS --------------------------------------- */
 
+document.getElementById('toggleLinks').addEventListener("click", function() {
 
+	var status = document.getElementById('mostVisited_div').style.visibility;
+
+	if (status == 'hidden') {
+
+		document.getElementById('mostVisited_div').style.visibility = 'visible';
+		Cookies.set("linksVisibility", "visible");
+	}
+	else {
+
+		document.getElementById('mostVisited_div').style.visibility = 'hidden';
+		Cookies.set("linksVisibility", "hidden");
+	}
+
+});
+
+// if already chose a colour, use that colour
+if (Cookies.get("linksVisibility")) {
+	Cookies.set("linksVisibility", Cookies.get("linksVisibility"));
+}
+// if no colour chosen, use default colour
+else {
+	Cookies.set("linksVisibility", "visible");
+}
+
+// save the setting
+document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
 
 
