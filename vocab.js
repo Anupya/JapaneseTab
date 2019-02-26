@@ -11,8 +11,7 @@
 !function(e){var n=!1;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var o=window.Cookies,t=window.Cookies=e();t.noConflict=function(){return window.Cookies=o,t}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var o=arguments[e];for(var t in o)n[t]=o[t]}return n}return function n(o){function t(n,r,i){var c;if("undefined"!=typeof document){if(arguments.length>1){if("number"==typeof(i=e({path:"/"},t.defaults,i)).expires){var a=new Date;a.setMilliseconds(a.getMilliseconds()+864e5*i.expires),i.expires=a}i.expires=i.expires?i.expires.toUTCString():"";try{c=JSON.stringify(r),/^[\{\[]/.test(c)&&(r=c)}catch(e){}r=o.write?o.write(r,n):encodeURIComponent(String(r)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=(n=(n=encodeURIComponent(String(n))).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent)).replace(/[\(\)]/g,escape);var s="";for(var f in i)i[f]&&(s+="; "+f,!0!==i[f]&&(s+="="+i[f]));return document.cookie=n+"="+r+s}n||(c={});for(var p=document.cookie?document.cookie.split("; "):[],d=/(%[0-9A-Z]{2})+/g,u=0;u<p.length;u++){var l=p[u].split("="),C=l.slice(1).join("=");this.json||'"'!==C.charAt(0)||(C=C.slice(1,-1));try{var g=l[0].replace(d,decodeURIComponent);if(C=o.read?o.read(C,g):o(C,g)||C.replace(d,decodeURIComponent),this.json)try{C=JSON.parse(C)}catch(e){}if(n===g){c=C;break}n||(c[g]=C)}catch(e){}}return c}}return t.set=t,t.get=function(e){return t.call(t,e)},t.getJSON=function(){return t.apply({json:!0},[].slice.call(arguments))},t.defaults={},t.remove=function(n,o){t(n,"",e(o,{expires:-1}))},t.withConverter=n,t}(function(){})});
 //# sourceMappingURL=/sm/203d9606ffea7a776ef56994ac4d4a1ab0a18611bf5f22fd2f82e9b682eea54f.map
 
-
-// all english words - 1853
+// all english words - 1814
 var wordList = [
 
   // got a list of common english words
@@ -22,12 +21,12 @@ var wordList = [
   "advice","affect","afraid","after","afternoon","again","against","age",
   "ago","agree","ahead","aid","air","airplane","alike","alive",
   "all","allow","almost","alone","along","aloud","already",
-  "also","am","among","amount","ancient","angle","angry",
+  "also","am","among","amount","ancient","angel","angle","angry",
   "animal","announced","another","answer","ants","any","anybody","anyone",
   "anything","anyway","anywhere","apart","apartment","appearance","apple","applied",
   "appropriate","are","area","arm","army","around","arrange","arrangement",
   "arrive","arrow","art","article","as","aside","ask","asleep",
-  "at","ate","atmosphere","atom","atomic","attached","attack","attempt",
+  "ate","atmosphere","atom","atomic","attached","attack","attempt",
   "attention","audience","author","automobile","available","average","avoid","aware",
   "away","baby","back","bad","badly","bag","balance","ball",
   "balloon","bank","bar","bare","bark","barn",
@@ -130,13 +129,13 @@ var wordList = [
   "lion","lips","liquid","listen","little","living","load","local","locate",
   "location","log","lonely","long","look","loose","lose","loss","lost","lot","loud",
   "love","lovely","low","lower","luck","lunch","lungs",
-  "lying","machine","machinery","mad","made","magic","magnet","mail",
+  "lying","machinery","mad","made","magic","magnet","mail",
   "mainly","major","make","making","man","managed","manner",
   "manufacturing","many","map","mark","market","married","mass","massage",
   "master","material","mathematics","matter","may","maybe","me","meal",
   "mean","means","meant","measure","meat","medicine","meet","melted",
   "member","memory","men","mental","merely","met","metal","method",
-  "mice","middle","might","mighty","mile","military","milk","mill",
+  "mice","middle","might","mighty","military","milk","mill",
   "mind","minerals","minute","mirror","missing","mission","mistake",
   "mix","mixture","model","moment","money","monkey",
   "month","mood","moon","morning","most","mostly","mother",
@@ -179,7 +178,7 @@ var wordList = [
   "remain","remarkable","remember","remove","repeat","replace","report",
   "represent","require","research","respect","rest","result","return","review",
   "rhyme","rhythm","rice","rich","ride","riding","right","ring",
-  "rising","river","road","roar","rock","rocket","rocky",
+  "rising","river","road","roar","rock","rocky",
   "rod","roll","roof","room","root","rope","rose","rough",
   "round","route","row","rubbed","rubber","rule","ruler","run",
   "running","rush","sad","saddle","safe","safety","said","sail",
@@ -221,7 +220,7 @@ var wordList = [
   "tears","teeth","telephone","tell","temperature","ten","term","terrible",
   "thank","that","them","themselves","theory","there","therefore","these","they",
   "thick","thin","thing","think","third","thirty","this","those",
-  "thou","though","thought","thousand","thread","three","threw","throat","through",
+  "thou","thought","thousand","thread","three","threw","throat","through",
   "throughout","throw","thrown","thumb","thus","thy","tide","tie","tight","till","time",
   "tin","tiny","tip","tired","title","tobacco","today","together","told","tomorrow",
   "tone","tongue","tonight","too","took","tool","top","topic",
@@ -248,7 +247,6 @@ var wordList = [
   "year","yellow","yes","yesterday","you","young","younger",
   "your","yourself","youth","zero","zebra","zoo","zulu"
 ];
-
 // get a random word from above list
 var keyword = wordList[Math.floor(Math.random() * (wordList.length))];
 console.log(keyword);
