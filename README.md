@@ -13,11 +13,12 @@ A Chrome extension that helps you learn Japanese with every new tab.
  Click [here](https://chrome.google.com/webstore/detail/japanesetab/jndamehabjcbgopalgabjpplldmjnnfn) to download the extension: <br />
  ![Screenshot](http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/546cff26e4b08897ae07e062/55b2a832e4b051ab94b88fde/1440437069496/?format=1000w)
  
- ## Features
+  ## Features
  - 1800+ words
  - Learn pronounciation quickly with romaji
  - Includes kanji, hiragana and katakana translations
  - Customizable background - choose from 8 Japanese pastel swatches
+ - Display/hide top visited sites
  
  ## Coming up
  - Audio button
@@ -43,3 +44,4 @@ MIT - Read it [here](https://github.com/Anupya/JapaneseTab/blob/master/LICENSE)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot2.png)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot3.png)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot4.png)
+
