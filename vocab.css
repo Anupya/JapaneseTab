@@ -93,12 +93,22 @@ a {
 .kanjiclass {
 	position: relative;
 	margin-top: -5vh;
+	margin-left: 3vh;
 }
 
 .kanji {
 	text-align: center;
 	font-size: 60px;
 	font-weight: 900;
+}
+
+.audio {
+	position: relative;
+	bottom: 30px;
+}
+
+.audio:hover {
+	cursor: pointer;
 }
 
 .kanaclass {

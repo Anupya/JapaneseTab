@@ -11,7 +11,7 @@
 !function(e){var n=!1;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var o=window.Cookies,t=window.Cookies=e();t.noConflict=function(){return window.Cookies=o,t}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var o=arguments[e];for(var t in o)n[t]=o[t]}return n}return function n(o){function t(n,r,i){var c;if("undefined"!=typeof document){if(arguments.length>1){if("number"==typeof(i=e({path:"/"},t.defaults,i)).expires){var a=new Date;a.setMilliseconds(a.getMilliseconds()+864e5*i.expires),i.expires=a}i.expires=i.expires?i.expires.toUTCString():"";try{c=JSON.stringify(r),/^[\{\[]/.test(c)&&(r=c)}catch(e){}r=o.write?o.write(r,n):encodeURIComponent(String(r)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=(n=(n=encodeURIComponent(String(n))).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent)).replace(/[\(\)]/g,escape);var s="";for(var f in i)i[f]&&(s+="; "+f,!0!==i[f]&&(s+="="+i[f]));return document.cookie=n+"="+r+s}n||(c={});for(var p=document.cookie?document.cookie.split("; "):[],d=/(%[0-9A-Z]{2})+/g,u=0;u<p.length;u++){var l=p[u].split("="),C=l.slice(1).join("=");this.json||'"'!==C.charAt(0)||(C=C.slice(1,-1));try{var g=l[0].replace(d,decodeURIComponent);if(C=o.read?o.read(C,g):o(C,g)||C.replace(d,decodeURIComponent),this.json)try{C=JSON.parse(C)}catch(e){}if(n===g){c=C;break}n||(c[g]=C)}catch(e){}}return c}}return t.set=t,t.get=function(e){return t.call(t,e)},t.getJSON=function(){return t.apply({json:!0},[].slice.call(arguments))},t.defaults={},t.remove=function(n,o){t(n,"",e(o,{expires:-1}))},t.withConverter=n,t}(function(){})});
 //# sourceMappingURL=/sm/203d9606ffea7a776ef56994ac4d4a1ab0a18611bf5f22fd2f82e9b682eea54f.map
 
-// all english words - 1814
+// all english words - 1812
 var wordList = [
 
   // got a list of common english words
@@ -60,7 +60,7 @@ var wordList = [
   "compound","concerned","condition","congress","connected","consider","consist",
   "consonant","constantly","construction","contain","continent","continued","contrast",
   "control","conversation","cookies","cool","copper","corn","corner","correct","cost",
-  "cotton","could","count","country","couple","courage","course","court",
+  "cotton","could","count","country","courage","course","court",
   "cover","cow","crack","create","creature","crew",
   "crop","cross","crowd","cry","cup","curious","current","curve",
   "customs","cut","cutting","daily","damage","dance","danger","dangerous",
@@ -171,7 +171,7 @@ var wordList = [
   "proud","prove","provide","public","pull","pupil","purple",
   "purpose","push","put","putting","quarter","queen","question","quick",
   "quickly","quiet","quietly","quite","rabbit","race","radio","railroad",
-  "rain","raise","ran","ranch","range","rapidly","rate","rather",
+  "rain","raise","ran","ranch","range","rapidly","rather",
   "raw","rays","reach","read","reader","ready","realize",
   "rear","reason","recall","receive","recent","recently","recognize","record",
   "red","refer","refused","region","related","relationship","religious",
@@ -247,6 +247,7 @@ var wordList = [
   "year","yellow","yes","yesterday","you","young","younger",
   "your","yourself","youth","zero","zebra","zoo","zulu"
 ];
+
 // get a random word from above list
 var keyword = wordList[Math.floor(Math.random() * (wordList.length))];
 console.log(keyword);
@@ -298,10 +299,22 @@ document.getElementById("hiragana").innerHTML = hiragana;
 document.getElementById("part of speech").innerHTML = actualposstring.toLowerCase();
 document.getElementById("definition").innerHTML = actualdefstring.toLowerCase();
 
+
 function onAnchorClick(event) {
   chrome.tabs.create({ url: event.srcElement.href });
   return false;
 }
+
+// AUDIO
+document.getElementById("audio").innerHTML = "<img src=audio.svg style='opacity: 0.4; width: 20px; height: 20px;'>";
+var msg = new SpeechSynthesisUtterance(kanji);
+
+msg.lang = 'ja';
+
+document.getElementById("audio").addEventListener('click', function() {
+	window.speechSynthesis.speak(msg);
+});
+
 
 // Get the top sites and display then
 function buildPopupDom(mostVisitedURLs) {
