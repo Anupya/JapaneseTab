@@ -90,13 +90,13 @@ a {
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
 }
 
-.kanjiclass {
+.hiraganaclass {
 	position: relative;
 	margin-top: -5vh;
 	margin-left: 3vh;
 }
 
-.kanji {
+.hiragana {
 	text-align: center;
 	font-size: 60px;
 	font-weight: 900;
@@ -111,12 +111,12 @@ a {
 	cursor: pointer;
 }
 
-.kanaclass {
+.kaclass {
 	position: relative;
 	padding-top: 1vh;
 }
 
-.hiragana {
+.kanji {
 	font-weight: 100;
 	font-size: 20px;	
 	margin-right: 10px;

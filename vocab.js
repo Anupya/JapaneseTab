@@ -307,7 +307,7 @@ function onAnchorClick(event) {
 
 // AUDIO
 document.getElementById("audio").innerHTML = "<img src=audio.svg style='opacity: 0.4; width: 20px; height: 20px;'>";
-var msg = new SpeechSynthesisUtterance(kanji);
+var msg = new SpeechSynthesisUtterance(hiragana);
 
 msg.lang = 'ja';
 

@@ -32,24 +32,24 @@ p {
 	z-index: 1;
 }
 
-.kanjiclass {
+.hiraganaclass {
 	position: relative;
 	margin-top: -6vh;
 }
 
-.kanji {
+.hiragana {
 	text-align: center;
 	font-size: 50px;
 	font-weight: 700;
 }
 
-.kanaclass {
+.kaclass {
 	position: relative;
 	padding-top: 1vh;
 	font-family: 
 }
 
-.hiragana {
+.kanji {
 	font-weight: 100;
 	font-size: 20px;	
 	margin-right: 10px;
