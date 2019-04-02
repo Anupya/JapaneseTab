@@ -291,11 +291,28 @@ for (a = 0; a < thedefinition.length; a++) {
     
 }
 
+
 // send information to front end
-document.getElementById("kanji").innerHTML = kanji;
-document.getElementById("katakana").innerHTML = katakana;
+// get save options
+chrome.storage.sync.get({
+    romajiCheck: true,
+    kanjiModeCheck: false
+  }, function(items) {
+	  // hide romaji if turned off
+	  if (items.romajiCheck != true) {
+		  document.getElementById('romaji').style.fontSize = "0px";
+	  }
+	  // switch hiragana and kanji position if kanjimode is selected
+	  if (items.kanjiModeCheck != true) {
+		  document.getElementById("kanji").innerHTML = kanji;
+		  document.getElementById("hiragana").innerHTML = hiragana;
+	  } else {
+		  document.getElementById("kanji").innerHTML = hiragana;
+		  document.getElementById("hiragana").innerHTML = kanji;
+	  }
+});
 document.getElementById("romaji").innerHTML = romaji;
-document.getElementById("hiragana").innerHTML = hiragana;
+document.getElementById("katakana").innerHTML = katakana;
 document.getElementById("part of speech").innerHTML = actualposstring.toLowerCase();
 document.getElementById("definition").innerHTML = actualdefstring.toLowerCase();
 
@@ -469,3 +486,9 @@ if (Cookies.get("linksVisibility") == "hidden") {
 else {
 	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 }
+
+/* OPTIONS -------------------------------- */
+document.getElementById('goToOptions').addEventListener("click", function() {
+	window.open(chrome.runtime.getURL('options.html'));
+});
+document.getElementById('goToOptions').innerHTML = "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 30px; width: 30px; left: 5vh; bottom: 10vh;'></img";

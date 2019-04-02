@@ -161,6 +161,18 @@ a {
 	margin-right: auto;
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
 }
+/* OPTIONS ----------------------------- */
+#goToOptions {
+	position: fixed;
+	height: 30px;
+	width: 30px;
+	bottom: 7vh;
+	left: 5vh;
+}
+
+#goToOptions:hover {
+	cursor: pointer;
+}
 
 /* MOST VISITED ------------------------ */
 
