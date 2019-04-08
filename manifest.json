@@ -6,7 +6,6 @@
   "name": "JapaneseTab",
   "short_name": "JTab",
   "description": "Learn Japanese in every new tab without even realizing it!",
-  "options_page": "options.html",
   "version": "1.0.5",
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "chrome_url_overrides": {"newtab": "vocab.html"},
