@@ -60,28 +60,6 @@ for (a = 0; a < thedefinition.length; a++) {
     
 }
 
-/*
-// send information to front end
-// get save options
-chrome.storage.sync.get({
-    romajiCheck: true,
-    kanjiModeCheck: false
-  }, function(items) {
-	  // hide romaji if turned off
-	  if (items.romajiCheck != true) {
-		  document.getElementById('romaji').style.fontSize = "0px";
-	  }
-	  // switch hiragana and kanji position if kanjimode is selected
-	  if (items.kanjiModeCheck != true) {
-		  document.getElementById("kanji").innerHTML = kanji;
-		  document.getElementById("hiragana").innerHTML = hiragana;
-	  } else {
-		  document.getElementById("kanji").innerHTML = hiragana;
-		  document.getElementById("hiragana").innerHTML = kanji;
-	  }
-});
-*/
-
 if (Cookies.get("romaji") == "off") {
 	document.getElementById('romaji').style.visibility = "none";
 }
@@ -296,7 +274,6 @@ document.getElementById('optionsImg').addEventListener("click", function() {
 		document.getElementById("topText").style.visibility = "visible";
 	}
 
-	//window.open(chrome.runtime.getURL('options.html'));
 });
 
 document.getElementById('romajiCheck').addEventListener("click", function() {
@@ -313,7 +290,7 @@ document.getElementById('romajiCheck').addEventListener("click", function() {
 		document.getElementById("romajiCheck").style = "text-decoration: line-through";
 		document.getElementById("romaji").style.visibility = "visible";
 	}	
-	
+
 	document.getElementById("romajiCheck").style.visibility = "visible";
 });
 
@@ -323,11 +300,16 @@ document.getElementById('topText').addEventListener("click", function() {
 	if (Cookies.get("topText") == "hiragana first") {
 		Cookies.set("topText", "kanji first");
 		document.getElementById("topText").innerHTML = "hiragana first";
+		document.getElementById("hiragana").innerHTML = kanji;
+		document.getElementById("kanji").innerHTML = hiragana;
 	}
+
 	// put hiragana on top
 	else {
 		Cookies.set("topText", "hiragana first");
 		document.getElementById("topText").innerHTML = "kanji first";
+		document.getElementById("hiragana").innerHTML = hiragana;
+		document.getElementById("kanji").innerHTML = kanji;
 	}
 });
 
@@ -360,8 +342,8 @@ if (Cookies.get("romaji") == "off") {
 }
 
 if (Cookies.get("topText") == "hiragana first") {
-	document.getElementById("topText").innerHTML = "hiragana first";
+	document.getElementById("topText").innerHTML = "kanji first";
 }
 if (Cookies.get("topText") == "kanji first") {
-	document.getElementById("topText").innerHTML = "kanji first";
+	document.getElementById("topText").innerHTML = "hiragana first";
 }
