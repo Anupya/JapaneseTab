@@ -20,7 +20,6 @@ var wordList = [
 
 // get a random word from above list
 var keyword = wordList[Math.floor(Math.random() * (wordList.length))];
-console.log(keyword);
 
 //  Make an API call
 var xhr = new XMLHttpRequest();
@@ -261,4 +260,4 @@ else {
 document.getElementById('goToOptions').addEventListener("click", function() {
 	window.open(chrome.runtime.getURL('options.html'));
 });
-document.getElementById('goToOptions').innerHTML = "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 30px; width: 30px; left: 5vh; bottom: 10vh;'></img";
+document.getElementById('goToOptions').innerHTML = "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 30px; width: 30px; left: 5vh; top: 5vh;'></img";

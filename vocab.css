@@ -24,6 +24,21 @@ a {
 	display:inline;
 }
 
+/* OPTIONS ----------------------------- */
+
+#goToOptions {
+	position: fixed;
+	top: 5vh;
+	left: 5vh;
+	height: 30px;
+	width: 30px;
+	
+}
+
+#goToOptions:hover {
+	cursor: pointer;
+}
+
 /* COLOURS ------------------------------------ */
 
 .colourSwatch {
@@ -161,18 +176,7 @@ a {
 	margin-right: auto;
 	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
 }
-/* OPTIONS ----------------------------- */
-#goToOptions {
-	position: fixed;
-	height: 30px;
-	width: 30px;
-	bottom: 7vh;
-	left: 5vh;
-}
 
-#goToOptions:hover {
-	cursor: pointer;
-}
 
 /* MOST VISITED ------------------------ */
 
