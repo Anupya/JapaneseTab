@@ -60,7 +60,7 @@ for (a = 0; a < thedefinition.length; a++) {
     
 }
 
-
+/*
 // send information to front end
 // get save options
 chrome.storage.sync.get({
@@ -80,6 +80,24 @@ chrome.storage.sync.get({
 		  document.getElementById("hiragana").innerHTML = kanji;
 	  }
 });
+*/
+
+if (Cookies.get("romaji") == "off") {
+	document.getElementById('romaji').style.visibility = "none";
+}
+if (Cookies.get("romaji") == "on") {
+	document.getElementById('romaji').style.visibility = "visible";	
+}
+
+if (Cookies.get("topText") == "hiragana first") {
+	document.getElementById("kanji").innerHTML = kanji;
+	document.getElementById("hiragana").innerHTML = hiragana;
+}
+if (Cookies.get("topText") == "kanji first") {
+	document.getElementById("kanji").innerHTML = hiragana;
+	document.getElementById("hiragana").innerHTML = kanji;
+}
+
 document.getElementById("romaji").innerHTML = romaji;
 document.getElementById("katakana").innerHTML = katakana;
 document.getElementById("part of speech").innerHTML = actualposstring.toLowerCase();
@@ -256,8 +274,94 @@ else {
 	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 }
 
+
 /* OPTIONS -------------------------------- */
-document.getElementById('goToOptions').addEventListener("click", function() {
-	window.open(chrome.runtime.getURL('options.html'));
+
+document.getElementById('optionsImg').innerHTML += "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 30px; width: 30px; left: 5vh; top: 5vh;'></img";
+document.getElementById('romajiCheck').innerHTML = "romaji";
+document.getElementById('romajiCheck').style.visibility = "hidden";
+document.getElementById('topText').style.visibility = "hidden";
+
+// Event listeners
+document.getElementById('optionsImg').addEventListener("click", function() {
+
+	if (document.getElementById('romajiCheck').style.visibility == "visible") {
+
+		document.getElementById('romajiCheck').style.visibility = "hidden";
+		document.getElementById('topText').style.visibility = "hidden";
+	}
+
+	else {
+		document.getElementById("romajiCheck").style.visibility = "visible";
+		document.getElementById("topText").style.visibility = "visible";
+	}
+
+	//window.open(chrome.runtime.getURL('options.html'));
 });
-document.getElementById('goToOptions').innerHTML = "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 30px; width: 30px; left: 5vh; top: 5vh;'></img";
+
+document.getElementById('romajiCheck').addEventListener("click", function() {
+
+	// turn romaji off
+	if (Cookies.get("romaji") == "on") {
+		Cookies.set("romaji", "off");
+		document.getElementById("romajiCheck").style = "text-decoration: none";
+		document.getElementById("romaji").style.visibility = "hidden";
+	}
+	// turn romaji on
+	else {
+		Cookies.set("romaji", "on");
+		document.getElementById("romajiCheck").style = "text-decoration: line-through";
+		document.getElementById("romaji").style.visibility = "visible";
+	}	
+	
+	document.getElementById("romajiCheck").style.visibility = "visible";
+});
+
+document.getElementById('topText').addEventListener("click", function() {
+
+	// put kanji on top
+	if (Cookies.get("topText") == "hiragana first") {
+		Cookies.set("topText", "kanji first");
+		document.getElementById("topText").innerHTML = "hiragana first";
+	}
+	// put hiragana on top
+	else {
+		Cookies.set("topText", "hiragana first");
+		document.getElementById("topText").innerHTML = "kanji first";
+	}
+});
+
+
+// If chose nothing, choose a default
+if (Cookies.get("romaji")) {
+	Cookies.set("romaji", Cookies.get("romaji"));
+}
+else {
+	Cookies.set("romaji", "on");
+}
+
+// if already chose a topText setting, pick that
+if (Cookies.get("topText")) {
+	Cookies.set("topText", Cookies.get("topText"));
+}
+else {
+	Cookies.set("topText", "hiragana first");
+}
+
+
+// actually change the selection based on what you picked
+if (Cookies.get("romaji") == "on") {
+	document.getElementById("romajiCheck").style = "text-decoration: line-through";
+	document.getElementById("romaji").style.visibility = "visible";
+}
+if (Cookies.get("romaji") == "off") {
+	document.getElementById("romajiCheck").style = "text-decoration: none";	
+	document.getElementById("romaji").style.visibility = "hidden";
+}
+
+if (Cookies.get("topText") == "hiragana first") {
+	document.getElementById("topText").innerHTML = "hiragana first";
+}
+if (Cookies.get("topText") == "kanji first") {
+	document.getElementById("topText").innerHTML = "kanji first";
+}

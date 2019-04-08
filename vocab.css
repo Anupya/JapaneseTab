@@ -27,11 +27,12 @@ a {
 /* OPTIONS ----------------------------- */
 
 #goToOptions {
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
 	position: fixed;
 	top: 5vh;
 	left: 5vh;
-	height: 30px;
-	width: 30px;
+	height: 23px;
+	width: 23px;
 	
 }
 
@@ -39,6 +40,18 @@ a {
 	cursor: pointer;
 }
 
+#romajiCheck {
+	position: fixed;
+	top: 11vh;
+	left: 6vh;
+	visibility: hidden;
+}
+
+#topText {
+	position: fixed;
+	top: 14vh;
+	left: 6vh;
+}
 /* COLOURS ------------------------------------ */
 
 .colourSwatch {
