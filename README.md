@@ -5,7 +5,7 @@ A Chrome extension that helps you learn Japanese with every new tab.
 
 <a href="https://www.producthunt.com/posts/japanesetab?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-japanesetab" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=146583&theme=light" alt="JapaneseTab - Learn Japanese with every new tab | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
-[![HitCount](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FAnupya%2FJapanese-Tab)](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FAnupya%2FJapanese-Tab) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HitCount](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FAnupya%2FJapaneseTab)](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FAnupya%2FJapaneseTab) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ![Screenshot](https://github.com/Anupya/JapTab/blob/master/logotitlesmaller.png)
@@ -16,7 +16,7 @@ A Chrome extension that helps you learn Japanese with every new tab.
  ![Screenshot](http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/546cff26e4b08897ae07e062/55b2a832e4b051ab94b88fde/1440437069496/?format=1000w)
  
   ## Features
- - 23000+ words
+ - 23,000+ words
  - Learn pronounciation quickly with romaji + audio
  - Includes hiragana, kanji and katakana translations
  - Customizable background - choose from 8 Japanese pastel swatches
