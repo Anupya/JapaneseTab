@@ -17,14 +17,16 @@ const colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, pur
 const palette = document.getElementsByClassName('colourBlock');
 
 const urlToTitle = {
-	"https://youtube.com/": "YouTube",
-	"https://google.com": "Google",
-	"https://facebook.com/": "Facebook",
-	"https://baidu.com": "Baidu",
-	"https://yahoo.com": "Yahoo",
-	"https://gmail.com/": "Gmail",
-	"https://drive.google.com/": "Google Drive",
-	"https://x.com/": "Twitter"
+	"youtube.com/": "YouTube",
+	"google.com": "Google",
+	"facebook.com/": "Facebook",
+	"baidu.com/": "Baidu",
+	"yahoo.com/": "Yahoo",
+	"gmail.com/": "Gmail",
+	"drive.google.com/": "Google Drive",
+	"x.com/": "Twitter",
+	"maps.google.com/": "Google Maps",
+	"linkedin.com/": "Linkedin"
 }
 
 const textElementIDs = ["romaji", "kanji", "hiragana", "katakana", "part of speech", "definition"];
@@ -253,26 +255,26 @@ function addEventListeners(kanji, hiragana) {
 
 function constructTopSites(mostVisitedURLs) {
   const mostVisitedDiv = document.getElementById('mostVisited_div');
-  var ul = mostVisitedDiv.appendChild(document.createElement('ul'));
+  let ul = mostVisitedDiv.appendChild(document.createElement('ul'));
   const numTopSites = 10;
 
-  for (var i = 0; i < numTopSites; i++) {
-    const mostVisitedURL = mostVisitedURLs[i].url
-    var a_link = ul.appendChild(document.createElement('a'));
+  for (let i = 0; i < numTopSites; i++) {
+    const mostVisitedURL = mostVisitedURLs[i].url.replace("https://", "").replace("http://", "").replace("www.", "");
+    let a_link = ul.appendChild(document.createElement('a'));
     a_link.href = mostVisitedURL; 
 
-    var li = a_link.appendChild(document.createElement('li'));
+    let li = a_link.appendChild(document.createElement('li'));
     li.className = "link";
     
-    var img = li.appendChild(document.createElement("img"));
+    let img = li.appendChild(document.createElement("img"));
     img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURL;
     img.className = "favicon";
 
-	var a = li.appendChild(document.createElement('a'));
+	let a = li.appendChild(document.createElement('a'));
     a.href = mostVisitedURL;
     a.className = "link_text";
 
-	let urlTitle = mostVisitedURL in urlToTitle ? urlToTitle[mostVisitedURL] : mostVisitedURL.substring(0, 10) + "...";
+	const urlTitle = mostVisitedURL in urlToTitle ? urlToTitle[mostVisitedURL] : mostVisitedURL;
     a.appendChild(document.createTextNode(urlTitle));
   }
 }
@@ -283,7 +285,7 @@ function toggleTextColor(color) {
 	}
 }
 
-function applyWritingSystemOrder() {
+function applyWritingSystemsOrder() {
 	document.getElementById('optionsImg').innerHTML += "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 26px; width: 26px; left: 5vh; top: 5vh;'></img";
 	document.getElementById('romajiCheck').innerHTML = "romaji";
 	document.getElementById('romajiCheck').style.visibility = "hidden";
@@ -346,8 +348,8 @@ function main() {
 	// Populate the Japanese writing systems of keyword
 	populateWritingSystems(romaji, katakana, prettifiedPartOfSpeech, prettifiedDefinition);
 
-	// Decorate and populate the order of Japanese writing system on the screen
-	applyWritingSystemOrder();
+	// Apply the order of Japanese writing systems
+	applyWritingSystemsOrder();
 }
 
 main();
