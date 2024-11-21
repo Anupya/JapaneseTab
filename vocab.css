@@ -107,6 +107,12 @@ a {
 #orangelight {
 	background-color: var(--orangelight);
 }
+#white {
+	background-color: #fff;
+}
+#grey {
+	background-color: #3b3b3b;
+}
 
 
 /* JAPANESE --------------------------------- */
