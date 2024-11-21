@@ -8,9 +8,7 @@
   "chrome_url_overrides": {"newtab": "vocab.html"},
 
   "permissions": [
-    "activeTab",
-    "topSites",
-    "storage"
+    "topSites"
   ], 
   "host_permissions": [
     "https://jisho.org/api/*"
