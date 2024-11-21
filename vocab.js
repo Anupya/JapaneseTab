@@ -153,18 +153,31 @@ chrome.topSites.get(buildPopupDom);
 /* COLOURS --------------------------------------- */
 
 // 8 colours
-var yellowlight = '#FFFBDF';
-var greenlight = '#EAFFEF';
-var bluelight = '#D9E5FF';
-var purplelight = '#CBC5F5';
-var pinkdark = '#E2C8E5';
-var pink = '#F3D3EA';
-var pinklight = '#F9DFE8';
-var orangelight = '#FDECE4';
+const yellowlight = '#FFFBDF';
+const greenlight = '#EAFFEF';
+const bluelight = '#D9E5FF';
+const purplelight = '#CBC5F5';
+const pinkdark = '#E2C8E5';
+const pink = '#F3D3EA';
+const pinklight = '#F9DFE8';
+const orangelight = '#FDECE4';
+const white = '#fff';
+const whitedark = '#F0EAD6';
+const grey = '#3b3b3b';
+const black = '#000'
 
 // add event listeners
 var palette = document.getElementsByClassName('colourBlock');
-var colours = [yellowlight, orangelight, pinklight, pink, pinkdark, purplelight, bluelight, greenlight];
+var colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, purplelight, bluelight, greenlight, grey];
+
+function toggleTextColor(color) {
+	document.getElementById("romaji").style.color = color;
+	document.getElementById("kanji").style.color = color;
+	document.getElementById("hiragana").style.color = color;
+	document.getElementById("katakana").style.color = color;
+	document.getElementById("part of speech").style.color = color;
+	document.getElementById("definition").style.color = color;
+}
 
 // adds event listeners
 for (var i = 0; i < palette.length; i++) {
@@ -174,6 +187,8 @@ for (var i = 0; i < palette.length; i++) {
 		palette[index].addEventListener("click", function() {
 			document.getElementById('body').style.backgroundColor = colours[index];
 			
+			toggleTextColor(colours[index] === grey ? whitedark : black);
+
 			// clears any highlighted boxes
 			for (var j = 0; j < palette.length; j++) {
 				document.getElementById(palette[j].id).style.border = '1px solid #a9a9a9';
