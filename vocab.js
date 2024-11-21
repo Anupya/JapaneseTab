@@ -1,158 +1,5 @@
-// Fetch a random Japanese word
-const keyword = wordList[Math.floor(Math.random() * (wordList.length))];
+// CONSTANTS ---------------------------------------------
 
-//  Make an API call
-var xhr = new XMLHttpRequest();
-var apiurl = 'https://jisho.org/api/v1/search/words?keyword=' + keyword;
-xhr.open("GET", apiurl, false);
-xhr.send(); 
-
-// Store result in appropriate variables
-const result = JSON.parse(xhr.responseText)["data"][0];
-const kanji = result["japanese"][0]["word"];
-const hiragana = result["japanese"][0]["reading"];
-const romaji = wanakana.toRomaji(hiragana);
-const katakana = wanakana.toKatakana(hiragana);
-const thepartofspeech = result["senses"][0]["parts_of_speech"];
-const thedefinition = result["senses"][0]["english_definitions"];
-
-// Remove strings from objects and prettify
-let actualposstring = "("
-for (a = 0; a < thepartofspeech.length; a++) {
-    actualposstring += thepartofspeech[a];
-    
-    if (a < thepartofspeech.length - 1) {
-        actualposstring += ', ';
-    }
-    
-}
-actualposstring += ')';
-
-// Remove strings from objects and prettify
-let actualdefstring = "";
-for (a = 0; a < thedefinition.length; a++) {
-    actualdefstring += thedefinition[a];
-    
-    if (a < thedefinition.length - 1) {
-        actualdefstring += ', ';
-    }
-    
-}
-
-/* COOKIES --------------------------------------- */
-
-// If chose nothing, choose a default
-if (Cookies.get("romaji")) {
-	Cookies.set("romaji", Cookies.get("romaji"));
-}
-else {
-	Cookies.set("romaji", "on");
-}
-
-// if already chose a topText setting, pick that
-if (Cookies.get("topText")) {
-	Cookies.set("topText", Cookies.get("topText"));
-}
-else {
-	Cookies.set("topText", "hiragana first");
-}
-
-if (Cookies.get("romaji") == "off") {
-	document.getElementById('romaji').style.visibility = "hidden";
-}
-if (Cookies.get("romaji") == "on") {
-	document.getElementById('romaji').style.visibility = "visible";	
-}
-
-if (Cookies.get("topText") == "hiragana first") {
-	document.getElementById("kanji").innerHTML = kanji;
-	document.getElementById("hiragana").innerHTML = hiragana;
-}
-if (Cookies.get("topText") == "kanji first") {
-	document.getElementById("kanji").innerHTML = hiragana;
-	document.getElementById("hiragana").innerHTML = kanji;
-}
-
-document.getElementById("romaji").innerHTML = romaji;
-document.getElementById("katakana").innerHTML = katakana;
-document.getElementById("part of speech").innerHTML = actualposstring.toLowerCase();
-document.getElementById("definition").innerHTML = actualdefstring.toLowerCase();
-
-
-function onAnchorClick(event) {
-  chrome.tabs.create({ url: event.srcElement.href });
-  return false;
-}
-
-/* AUDIO ---------------------------------------- */
-
-document.getElementById("audio").innerHTML = "<img src=audio.svg style='opacity: 0.4; width: 20px; height: 20px;'>";
-var msg = new SpeechSynthesisUtterance(hiragana);
-
-msg.lang = 'ja';
-
-document.getElementById("audio").addEventListener('click', function() {
-	window.speechSynthesis.speak(msg);
-});
-
-
-// Get the top sites and display then
-function buildPopupDom(mostVisitedURLs) {
-  var popupDiv = document.getElementById('mostVisited_div');
-  var ul = popupDiv.appendChild(document.createElement('ul'));
-  var desired_url_num = 10;
-
-  for (var i = 0; i < desired_url_num; i++) {
-    
-    var a_link = ul.appendChild(document.createElement('a'));
-    a_link.href = mostVisitedURLs[i].url; 
-
-    var li = a_link.appendChild(document.createElement('li'));
-    li.className = "link";
-    
-    var img = li.appendChild(document.createElement("img"));
-    var a = li.appendChild(document.createElement('a'));
-
-    img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURLs[i].url;
-    img.className = "favicon";
-    a.href = mostVisitedURLs[i].url;
-    a.className = "link_text";
-
-    var url_title = (mostVisitedURLs[i].title);
-
-    if (mostVisitedURLs[i].url == "http://www.youtube.com/") {
-      url_title = "YouTube";}
-
-    if (mostVisitedURLs[i].url == "http://www.google.com") {
-      url_title = "Google";}
-
-    if (mostVisitedURLs[i].url == "http://www.facebook.com/") {
-      url_title = "Facebook";}
-
-    if (mostVisitedURLs[i].url == "http://www.baidu.com") {
-      url_title = "Baidu";}
-
-    if (mostVisitedURLs[i].url == "http://www.yahoo.com") {
-      url_title = "Yahoo";}
-
-    if (mostVisitedURLs[i].url == "http://www.gmail.com/") {
-      url_title = "Gmail";}
-
-    if (mostVisitedURLs[i].url == "http://drive.google.com/") {
-      url_title = "Google Drive";}
-
-    if (mostVisitedURLs[i].url == "https://twitter.com/") {
-      url_title = "Twitter";}
-
-
-    a.appendChild(document.createTextNode(url_title));
-  }
-}
-chrome.topSites.get(buildPopupDom);
-
-/* COLOURS --------------------------------------- */
-
-// 8 colours
 const yellowlight = '#FFFBDF';
 const greenlight = '#EAFFEF';
 const bluelight = '#D9E5FF';
@@ -166,173 +13,341 @@ const whitedark = '#F0EAD6';
 const grey = '#3b3b3b';
 const black = '#000'
 
-// add event listeners
-var palette = document.getElementsByClassName('colourBlock');
-var colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, purplelight, bluelight, greenlight, grey];
+const colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, purplelight, bluelight, greenlight, grey];
+const palette = document.getElementsByClassName('colourBlock');
 
-function toggleTextColor(color) {
-	document.getElementById("romaji").style.color = color;
-	document.getElementById("kanji").style.color = color;
-	document.getElementById("hiragana").style.color = color;
-	document.getElementById("katakana").style.color = color;
-	document.getElementById("part of speech").style.color = color;
-	document.getElementById("definition").style.color = color;
+const urlToTitle = {
+	"https://youtube.com/": "YouTube",
+	"https://google.com": "Google",
+	"https://facebook.com/": "Facebook",
+	"https://baidu.com": "Baidu",
+	"https://yahoo.com": "Yahoo",
+	"https://gmail.com/": "Gmail",
+	"https://drive.google.com/": "Google Drive",
+	"https://x.com/": "Twitter"
 }
 
-// adds event listeners
-for (var i = 0; i < palette.length; i++) {
+const textElementIDs = ["romaji", "kanji", "hiragana", "katakana", "part of speech", "definition"];
 
-	// pass i inside a function to addEventListeners
-	(function(index) {
-		palette[index].addEventListener("click", function() {
-			document.getElementById('body').style.backgroundColor = colours[index];
-			
-			toggleTextColor(colours[index] === grey ? whitedark : black);
+// FUNCTIONS ---------------------------------------------
 
-			// clears any highlighted boxes
-			for (var j = 0; j < palette.length; j++) {
-				document.getElementById(palette[j].id).style.border = '1px solid #a9a9a9';
-			}
-
-			// adds thicker border around current selection
-			document.getElementById(palette[index].id).style.border = '1px black solid';
-			Cookies.set("color", index);
-		})
-	}) (i);
-	
+function fetchJishoData(keyword) {
+	var xhr = new XMLHttpRequest();
+	var apiurl = 'https://jisho.org/api/v1/search/words?keyword=' + keyword;
+	xhr.open("GET", apiurl, false);
+	xhr.send(); 
+	return JSON.parse(xhr.responseText)["data"][0];
 }
 
-// if already chose a colour, use that colour
-if (Cookies.get("color")) {
-	Cookies.set("color", Cookies.get("color"));
+function prettifyPartOfSpeech(partOfSpeech) {
+	let prettifiedPartOfSpeech = "("
+	for (a = 0; a < partOfSpeech.length; a++) {
+		prettifiedPartOfSpeech += partOfSpeech[a];
+		
+		if (a < partOfSpeech.length - 1) {
+			prettifiedPartOfSpeech += ', ';
+		}
+		
+	}
+	prettifiedPartOfSpeech += ')';
+	return prettifiedPartOfSpeech;
 }
-// if no colour chosen, use default colour
-else {
-	Cookies.set("color", 3);
+
+function prettifyDefinition(definition) {
+	let prettifiedDefinition = "";
+	for (a = 0; a < definition.length; a++) {
+		prettifiedDefinition += definition[a];
+		
+		if (a < definition.length - 1) {
+			prettifiedDefinition += ', ';
+		}
+		
+	}
+	return prettifiedDefinition;
 }
 
-// apply the colour
-palette[Cookies.get("color")].click();
-
-
-/* LINKS --------------------------------------- */
-
-document.getElementById('toggleLinks').addEventListener("click", function() {
-
-	var status = document.getElementById('mostVisited_div').style.visibility;
-
-	if (status == 'hidden') {
-
-		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
-		document.getElementById('mostVisited_div').style.visibility = 'visible';
-		Cookies.set("linksVisibility", "visible");
+function setCookies() {
+	// Store background color preference
+	if (Cookies.get("color")) {
+		Cookies.set("color", Cookies.get("color"));
 	}
 	else {
-
-		document.getElementById('mostVisited_div').style.visibility = 'hidden';
-		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
-		Cookies.set("linksVisibility", "hidden");
+		Cookies.set("color", 3);
 	}
+	// apply the colour
+	palette[Cookies.get("color")].click();
 
-});
-
-// if already chose a colour, use that colour
-if (Cookies.get("linksVisibility")) {
-	Cookies.set("linksVisibility", Cookies.get("linksVisibility"));
-}
-// if no colour chosen, use default colour
-else {
-	Cookies.set("linksVisibility", "visible");
-}
-
-// save the setting
-document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
-
-if (Cookies.get("linksVisibility") == "hidden") {
-	document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
-}
-else {
-	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
-}
-
-
-/* OPTIONS -------------------------------- */
-
-document.getElementById('optionsImg').innerHTML += "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 26px; width: 26px; left: 5vh; top: 5vh;'></img";
-document.getElementById('romajiCheck').innerHTML = "romaji";
-document.getElementById('romajiCheck').style.visibility = "hidden";
-document.getElementById('topText').style.visibility = "hidden";
-
-// Event listeners
-document.getElementById('optionsImg').addEventListener("click", function() {
-
-	if (document.getElementById('romajiCheck').style.visibility == "visible") {
-
-		document.getElementById('romajiCheck').style.visibility = "hidden";
-		document.getElementById('topText').style.visibility = "hidden";
+	// Store romaji visibility preference
+	if (Cookies.get("romaji")) {
+		Cookies.set("romaji", Cookies.get("romaji"));
 	}
-
-	else {
-		document.getElementById("romajiCheck").style.visibility = "visible";
-		document.getElementById("topText").style.visibility = "visible";
-	}
-
-});
-
-document.getElementById('romajiCheck').addEventListener("click", function() {
-
-	// turn romaji off
-	if (Cookies.get("romaji") == "on") {
-		Cookies.set("romaji", "off");
-		document.getElementById("romajiCheck").style = "text-decoration: none";
-		document.getElementById("romaji").style.visibility = "hidden";
-	}
-	// turn romaji on
 	else {
 		Cookies.set("romaji", "on");
-		document.getElementById("romajiCheck").style = "text-decoration: line-through";
-		document.getElementById("romaji").style.visibility = "visible";
-	}	
-
-	document.getElementById("romajiCheck").style.opacity = "0.4";
-	document.getElementById("romajiCheck").style.visibility = "visible";
-});
-
-document.getElementById('topText').addEventListener("click", function() {
-
-	// put kanji on top
-	if (Cookies.get("topText") == "hiragana first") {
-		Cookies.set("topText", "kanji first");
-		document.getElementById("topText").innerHTML = "hiragana first";
-		document.getElementById("hiragana").innerHTML = kanji;
-		document.getElementById("kanji").innerHTML = hiragana;
 	}
 
-	// put hiragana on top
+	// Store "hiragana first" preference
+	if (Cookies.get("topText")) {
+		Cookies.set("topText", Cookies.get("topText"));
+	}
 	else {
 		Cookies.set("topText", "hiragana first");
-		document.getElementById("topText").innerHTML = "kanji first";
-		document.getElementById("hiragana").innerHTML = hiragana;
-		document.getElementById("kanji").innerHTML = kanji;
 	}
-});
 
-// actually change the selection based on what you picked
-if (Cookies.get("romaji") == "on") {
-	document.getElementById("romajiCheck").style = "text-decoration: line-through";
-	document.getElementById("romaji").style.visibility = "visible";
-}
-if (Cookies.get("romaji") == "off") {
-	document.getElementById("romajiCheck").style = "text-decoration: none";	
-	document.getElementById("romaji").style.visibility = "hidden";
+	// Store top visited site visibility preference
+	if (Cookies.get("linksVisibility")) {
+		Cookies.set("linksVisibility", Cookies.get("linksVisibility"));
+	}
+	else {
+		Cookies.set("linksVisibility", "visible");
+	}
 }
 
-if (Cookies.get("topText") == "hiragana first") {
-	document.getElementById("topText").innerHTML = "kanji first";
-}
-if (Cookies.get("topText") == "kanji first") {
-	document.getElementById("topText").innerHTML = "hiragana first";
+function getCookies(kanji, hiragana) {
+	// Apply romaji visibility preference
+	if (Cookies.get("romaji") == "off") {
+		document.getElementById('romaji').style.visibility = "hidden";
+	}
+	if (Cookies.get("romaji") == "on") {
+		document.getElementById('romaji').style.visibility = "visible";	
+	}
+
+	// Apply "hiragana first" preference
+	if (Cookies.get("topText") == "hiragana first") {
+		document.getElementById("kanji").innerHTML = kanji;
+		document.getElementById("hiragana").innerHTML = hiragana;
+	}
+	if (Cookies.get("topText") == "kanji first") {
+		document.getElementById("kanji").innerHTML = hiragana;
+		document.getElementById("hiragana").innerHTML = kanji;
+	}
+
+	// Apply top visited sites display preference
+	if (Cookies.get("linksVisibility") == "hidden") {
+		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+	}
+	else {
+		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+	}
+	document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
 }
 
-document.getElementById("romajiCheck").style.opacity = "0.4";
-document.getElementById("topText").style.opacity = "0.4";
+function populateWritingSystems(romaji, katakana, prettifiedPartOfSpeech, prettifiedDefinition) {
+	document.getElementById("romaji").innerHTML = romaji;
+	document.getElementById("katakana").innerHTML = katakana;
+	document.getElementById("part of speech").innerHTML = prettifiedPartOfSpeech.toLowerCase();
+	document.getElementById("definition").innerHTML = prettifiedDefinition.toLowerCase();
+}
+
+function onAnchorClick(event) {
+  chrome.tabs.create({ url: event.srcElement.href });
+  return false;
+}
+
+function addEventListeners(kanji, hiragana) {
+	// Audio
+	document.getElementById("audio").innerHTML = "<img src=audio.svg style='opacity: 0.4; width: 20px; height: 20px;'>";
+	let msg = new SpeechSynthesisUtterance(hiragana);
+	msg.lang = 'ja';
+	document.getElementById("audio").addEventListener('click', function() {
+		window.speechSynthesis.speak(msg);
+	});
+
+	// Color palette
+	for (var i = 0; i < palette.length; i++) {
+
+		// pass i inside a function to addEventListeners
+		(function(index) {
+			palette[index].addEventListener("click", function() {
+				document.getElementById('body').style.backgroundColor = colours[index];
+				
+				toggleTextColor(colours[index] === grey ? whitedark : black);
+
+				// clears any highlighted boxes
+				for (var j = 0; j < palette.length; j++) {
+					document.getElementById(palette[j].id).style.border = '1px solid #a9a9a9';
+				}
+
+				// adds thicker border around current selection
+				document.getElementById(palette[index].id).style.border = '1px black solid';
+				Cookies.set("color", index);
+			})
+		}) (i);
+	}
+
+	// Eye icon on bottom left to display top visited sites
+	document.getElementById('toggleLinks').addEventListener("click", function() {
+
+		var status = document.getElementById('mostVisited_div').style.visibility;
+	
+		if (status == 'hidden') {
+	
+			document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+			document.getElementById('mostVisited_div').style.visibility = 'visible';
+			Cookies.set("linksVisibility", "visible");
+		}
+		else {
+	
+			document.getElementById('mostVisited_div').style.visibility = 'hidden';
+			document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+			Cookies.set("linksVisibility", "hidden");
+		}
+	
+	});
+
+	// Menu icon on top left
+	document.getElementById('optionsImg').addEventListener("click", function() {
+
+		if (document.getElementById('romajiCheck').style.visibility == "visible") {
+
+			document.getElementById('romajiCheck').style.visibility = "hidden";
+			document.getElementById('topText').style.visibility = "hidden";
+		}
+
+		else {
+			document.getElementById("romajiCheck").style.visibility = "visible";
+			document.getElementById("topText").style.visibility = "visible";
+		}
+
+	});
+
+	// Option to display romaji
+	document.getElementById('romajiCheck').addEventListener("click", function() {
+
+		if (Cookies.get("romaji") == "on") {
+			Cookies.set("romaji", "off");
+			document.getElementById("romajiCheck").style = "text-decoration: none";
+			document.getElementById("romaji").style.visibility = "hidden";
+		}
+
+		else {
+			Cookies.set("romaji", "on");
+			document.getElementById("romajiCheck").style = "text-decoration: line-through";
+			document.getElementById("romaji").style.visibility = "visible";
+		}	
+
+		document.getElementById("romajiCheck").style.opacity = "0.4";
+		document.getElementById("romajiCheck").style.visibility = "visible";
+	});
+
+	// Option to show "hiragana first"
+	document.getElementById('topText').addEventListener("click", function() {
+
+		// put kanji on top
+		if (Cookies.get("topText") == "hiragana first") {
+			Cookies.set("topText", "kanji first");
+			document.getElementById("topText").innerHTML = "hiragana first";
+			document.getElementById("hiragana").innerHTML = kanji;
+			document.getElementById("kanji").innerHTML = hiragana;
+		}
+
+		// put hiragana on top
+		else {
+			Cookies.set("topText", "hiragana first");
+			document.getElementById("topText").innerHTML = "kanji first";
+			document.getElementById("hiragana").innerHTML = hiragana;
+			document.getElementById("kanji").innerHTML = kanji;
+		}
+	});
+}
+
+
+function constructTopSites(mostVisitedURLs) {
+  const mostVisitedDiv = document.getElementById('mostVisited_div');
+  var ul = mostVisitedDiv.appendChild(document.createElement('ul'));
+  const numTopSites = 10;
+
+  for (var i = 0; i < numTopSites; i++) {
+    const mostVisitedURL = mostVisitedURLs[i].url
+    var a_link = ul.appendChild(document.createElement('a'));
+    a_link.href = mostVisitedURL; 
+
+    var li = a_link.appendChild(document.createElement('li'));
+    li.className = "link";
+    
+    var img = li.appendChild(document.createElement("img"));
+    img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURL;
+    img.className = "favicon";
+
+	var a = li.appendChild(document.createElement('a'));
+    a.href = mostVisitedURL;
+    a.className = "link_text";
+
+	let urlTitle = mostVisitedURL in urlToTitle ? urlToTitle[mostVisitedURL] : mostVisitedURL.substring(0, 10) + "...";
+    a.appendChild(document.createTextNode(urlTitle));
+  }
+}
+
+function toggleTextColor(color) {
+	for (const element of textElementIDs) {
+		document.getElementById(element).style.color = color;
+	}
+}
+
+function applyWritingSystemOrder() {
+	document.getElementById('optionsImg').innerHTML += "<img src='/options.png' style='position: fixed; opacity: 0.2; height: 26px; width: 26px; left: 5vh; top: 5vh;'></img";
+	document.getElementById('romajiCheck').innerHTML = "romaji";
+	document.getElementById('romajiCheck').style.visibility = "hidden";
+	document.getElementById('topText').style.visibility = "hidden";
+
+	// actually change the selection based on what you picked
+	if (Cookies.get("romaji") == "on") {
+		document.getElementById("romajiCheck").style = "text-decoration: line-through";
+		document.getElementById("romaji").style.visibility = "visible";
+	}
+	if (Cookies.get("romaji") == "off") {
+		document.getElementById("romajiCheck").style = "text-decoration: none";	
+		document.getElementById("romaji").style.visibility = "hidden";
+	}
+
+	if (Cookies.get("topText") == "hiragana first") {
+		document.getElementById("topText").innerHTML = "kanji first";
+	}
+	if (Cookies.get("topText") == "kanji first") {
+		document.getElementById("topText").innerHTML = "hiragana first";
+	}
+
+	document.getElementById("romajiCheck").style.opacity = "0.4";
+	document.getElementById("topText").style.opacity = "0.4";
+}
+
+// MAIN CODE ---------------------------------------------
+
+function main() {
+	// Fetch a random Japanese word
+	const keyword = wordList[Math.floor(Math.random() * (wordList.length))];
+
+	// Fetch data about the word from Jisho API
+	const result = fetchJishoData(keyword);
+
+	// Extract useful data from result
+	const kanji = result["japanese"][0]["word"];
+	const hiragana = result["japanese"][0]["reading"];
+	const romaji = wanakana.toRomaji(hiragana);
+	const katakana = wanakana.toKatakana(hiragana);
+	const partOfSpeech = result["senses"][0]["parts_of_speech"];
+	const definition = result["senses"][0]["english_definitions"];
+
+	// Clean some data
+	const prettifiedPartOfSpeech = prettifyPartOfSpeech(partOfSpeech);
+	const prettifiedDefinition = prettifyDefinition(definition);
+
+	// Add event listeners
+	addEventListeners(kanji, hiragana);
+
+	// Construct top sites section
+	chrome.topSites.get(constructTopSites);
+
+	// Set cookies based on preference
+	setCookies();
+
+	// Apply the preference stored in cookies
+	getCookies(kanji, hiragana);
+
+	// Populate the Japanese writing systems of keyword
+	populateWritingSystems(romaji, katakana, prettifiedPartOfSpeech, prettifiedDefinition);
+
+	// Decorate and populate the order of Japanese writing system on the screen
+	applyWritingSystemOrder();
+}
+
+main();
