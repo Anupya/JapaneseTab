@@ -133,16 +133,15 @@ function getCookies(kanji, hiragana) {
 	document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
 }
 
-function populateWritingSystems(romaji, katakana, prettifiedPartOfSpeech, prettifiedDefinition) {
-	document.getElementById("romaji").innerHTML = romaji;
-	document.getElementById("katakana").innerHTML = katakana;
-	document.getElementById("part of speech").innerHTML = prettifiedPartOfSpeech.toLowerCase();
-	document.getElementById("definition").innerHTML = prettifiedDefinition.toLowerCase();
-}
-
 function onAnchorClick(event) {
   chrome.tabs.create({ url: event.srcElement.href });
   return false;
+}
+
+function toggleTextColor(color) {
+	for (const element of textElementIDs) {
+		document.getElementById(element).style.color = color;
+	}
 }
 
 function addEventListeners(kanji, hiragana) {
@@ -279,10 +278,11 @@ function constructTopSites(mostVisitedURLs) {
   }
 }
 
-function toggleTextColor(color) {
-	for (const element of textElementIDs) {
-		document.getElementById(element).style.color = color;
-	}
+function populateWritingSystems(romaji, katakana, prettifiedPartOfSpeech, prettifiedDefinition) {
+	document.getElementById("romaji").innerHTML = romaji;
+	document.getElementById("katakana").innerHTML = katakana;
+	document.getElementById("part of speech").innerHTML = prettifiedPartOfSpeech.toLowerCase();
+	document.getElementById("definition").innerHTML = prettifiedDefinition.toLowerCase();
 }
 
 function applyWritingSystemsOrder() {
