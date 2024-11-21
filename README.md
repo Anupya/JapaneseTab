@@ -45,4 +45,6 @@ MIT - Read it [here](https://github.com/Anupya/JapaneseTab/blob/master/LICENSE)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot3.png)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot4.png)
 ![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot5.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot6.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot7.png)
 
