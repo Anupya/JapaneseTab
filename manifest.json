@@ -4,13 +4,11 @@
   "name": "JapaneseTab",
   "short_name": "JTab",
   "description": "Learn Japanese in every new tab without even realizing it!",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "chrome_url_overrides": {"newtab": "vocab.html"},
 
   "permissions": [
-    "activeTab",
-    "topSites",
-    "storage"
+    "topSites"
   ], 
   "host_permissions": [
     "https://jisho.org/api/*"
