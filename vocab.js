@@ -16,19 +16,6 @@ const black = '#000'
 const colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, purplelight, bluelight, greenlight, grey];
 const palette = document.getElementsByClassName('colourBlock');
 
-const urlToTitle = {
-	"youtube.com/": "YouTube",
-	"google.com": "Google",
-	"facebook.com/": "Facebook",
-	"baidu.com/": "Baidu",
-	"yahoo.com/": "Yahoo",
-	"gmail.com/": "Gmail",
-	"drive.google.com/": "Google Drive",
-	"x.com/": "Twitter",
-	"maps.google.com/": "Google Maps",
-	"linkedin.com/": "Linkedin"
-}
-
 const textElementIDs = ["romaji", "kanji", "hiragana", "katakana", "part of speech", "definition"];
 
 // FUNCTIONS ---------------------------------------------
@@ -273,8 +260,8 @@ function constructTopSites(mostVisitedURLs) {
     a.href = mostVisitedURL;
     a.className = "link_text";
 
-	const urlTitle = mostVisitedURL in urlToTitle ? urlToTitle[mostVisitedURL] : mostVisitedURL;
-    a.appendChild(document.createTextNode(urlTitle));
+	const prettifiedUrl = mostVisitedURL.replace("https://", "").replace("http://", "");
+    a.appendChild(document.createTextNode(prettifiedUrl));
   }
 }
 
@@ -322,10 +309,10 @@ function main() {
 	const result = fetchJishoData(keyword);
 
 	// Extract useful data from result
-	const kanji = result["japanese"][0]["word"];
 	const hiragana = result["japanese"][0]["reading"];
+	const kanji = result["japanese"][0]["word"] || hiragana;
 	const romaji = wanakana.toRomaji(hiragana);
-	const katakana = wanakana.toKatakana(hiragana);
+	const katakana = wanakana.toKatakana(hiragana) || hiragana;
 	const partOfSpeech = result["senses"][0]["parts_of_speech"];
 	const definition = result["senses"][0]["english_definitions"];
 
