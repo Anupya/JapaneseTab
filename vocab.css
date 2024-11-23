@@ -1,5 +1,5 @@
 :root {
-	--grey: #A9A9A9;
+	--grey: #3B3B3B;
 	--yellowlight: #FFFBDF;
 	--greenlight: #EAFFEF;
 	--bluelight: #D9E5FF;
@@ -266,11 +266,10 @@ a:active {
 	overflow: hidden;
     overflow: ellipsis;
     white-space: nowrap;
-  	border: 1px solid var(--grey);
+  	border: 1px solid black;
   	padding: 10px;
   	height: 30px;
   	border-radius: 30px;
-  	
 }
 
 .favicon {

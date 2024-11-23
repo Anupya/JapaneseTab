@@ -16,7 +16,7 @@ const black = '#000'
 const colours = [yellowlight, orangelight, pinklight, pink, white, pinkdark, purplelight, bluelight, greenlight, grey];
 const palette = document.getElementsByClassName('colourBlock');
 
-const textElementIDs = ["romaji", "kanji", "hiragana", "katakana", "part of speech", "definition"];
+const textElementIDs = ["romaji", "kanji", "hiragana", "dot", "katakana", "part of speech", "definition", "topText", "romajiCheck"];
 
 // FUNCTIONS ---------------------------------------------
 
@@ -165,7 +165,7 @@ function addEventListeners(kanji, hiragana) {
 	// Eye icon on bottom left to display top visited sites
 	document.getElementById('toggleLinks').addEventListener("click", function() {
 
-		var status = document.getElementById('mostVisited_div').style.visibility;
+		const status = document.getElementById('mostVisited_div').style.visibility;
 	
 		if (status == 'hidden') {
 	
@@ -203,13 +203,13 @@ function addEventListeners(kanji, hiragana) {
 
 		if (Cookies.get("romaji") == "on") {
 			Cookies.set("romaji", "off");
-			document.getElementById("romajiCheck").style = "text-decoration: none";
+			document.getElementById("romajiCheck").style.textDecoration = "none";
 			document.getElementById("romaji").style.visibility = "hidden";
 		}
 
 		else {
 			Cookies.set("romaji", "on");
-			document.getElementById("romajiCheck").style = "text-decoration: line-through";
+			document.getElementById("romajiCheck").style.textDecoration = "line-through";
 			document.getElementById("romaji").style.visibility = "visible";
 		}	
 
@@ -280,11 +280,11 @@ function applyWritingSystemsOrder() {
 
 	// actually change the selection based on what you picked
 	if (Cookies.get("romaji") == "on") {
-		document.getElementById("romajiCheck").style = "text-decoration: line-through";
+		document.getElementById("romajiCheck").style.textDecoration = "line-through";
 		document.getElementById("romaji").style.visibility = "visible";
 	}
 	if (Cookies.get("romaji") == "off") {
-		document.getElementById("romajiCheck").style = "text-decoration: none";	
+		document.getElementById("romajiCheck").style.textDecoration = "none";	
 		document.getElementById("romaji").style.visibility = "hidden";
 	}
 
