@@ -238,6 +238,11 @@ function addEventListeners(kanji, hiragana) {
 	});
 }
 
+function getDomainFromUrl(url) {
+    const regex = /^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
 
 function constructTopSites(mostVisitedURLs) {
   const mostVisitedDiv = document.getElementById('mostVisited_div');
@@ -245,16 +250,20 @@ function constructTopSites(mostVisitedURLs) {
   const numTopSites = 10;
 
   for (let i = 0; i < numTopSites; i++) {
-    const mostVisitedURL = mostVisitedURLs[i].url.replace("https://", "").replace("http://", "").replace("www.", "");
+    const mostVisitedURL = mostVisitedURLs[i].url;
     let a_link = ul.appendChild(document.createElement('a'));
     a_link.href = mostVisitedURL; 
 
     let li = a_link.appendChild(document.createElement('li'));
     li.className = "link";
     
-    let img = li.appendChild(document.createElement("img"));
-    img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURL;
-    img.className = "favicon";
+	const domain = getDomainFromUrl(mostVisitedURL);
+
+	if (domain != null) {
+		let img = li.appendChild(document.createElement("img"));
+		img.src = "http://www.google.com/s2/favicons?domain=" + domain;
+		img.className = "favicon";
+	}
 
 	let a = li.appendChild(document.createElement('a'));
     a.href = mostVisitedURL;
